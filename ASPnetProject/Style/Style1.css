@@ -1,0 +1,75 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
+body {
+}
+
+
+.custom-shape-divider-top-1607268144 {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+.custom-shape-divider-top-1607268144 svg {
+    position: relative;
+    display: block;
+    width: calc(126% + 1.3px);
+    height: 171px;
+    transform: rotateY(180deg);
+}
+
+    .custom-shape-divider-top-1607268144 .shape-fill {
+        fill: #DBD9D9;
+    }
+.dropdown:hover .dropdown-menu{
+    display: block;
+
+}
+.font-overpass {
+    font-family: 'Overpass', sans-serif;
+}
+.font-abeezee {
+    font-family: 'ABeeZee', sans-serif;
+}
+.rotate-center:hover {
+    transition-property: all;
+    animation: rotate-center 0.6s ease-in-out both;
+}
+@keyframes rotate-center {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.text-shadow-pop-right {
+    animation: text-shadow-pop-right 0.6s both;
+}
+@keyframes text-shadow-pop-right {
+    0% {
+        text-shadow: 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555;
+        transform: translateX(0);
+    }
+
+    100% {
+        text-shadow: 1px 0 #555555, 2px 0 #555555, 3px 0 #555555, 4px 0 #555555, 5px 0 #555555, 6px 0 #555555, 7px 0 #555555, 8px 0 #555555;
+        transform: translateX(-8px);
+    }
+}
+.shadow-drop-center:hover {
+    animation: shadow-drop-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) alternate forwards;
+}
+@keyframes shadow-drop-center {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+    }
+}

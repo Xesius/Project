@@ -1,0 +1,41 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="pageMaster.master.cs" Inherits="ASPnetProject.pageMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <script src="https://kit.fontawesome.com/5f073fbe0b.js" crossorigin="anonymous"></script>
+    <title>StockZ</title>
+    <link rel="icon" href="images/logo2.png" />
+    <link rel="stylesheet" href="Style/Style1.css" />
+    <link rel="stylesheet" href="Style/hover.css" />
+    <link rel="stylesheet" href="public/build/tailwind.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div class="">
+                <nav class="flex justify-between p-6 bg-gradient-to-r from-blue-700 to-teal-400 flex-wrap items-center">
+                    <div class="flex items-center w-42 h-24 flex-shrink-0">
+                        <a href="Home.aspx"><img src="images/logo2.png" class="object-cover ml-5" /></a>
+                    </div>
+                    <div class="flex items-center">
+                        <a href="Home.aspx" class="text-center text-xl bg-teal-400 p-6 py-6 rounded-3xl border border-blue-200 mr-5 w-auto h-15 transition-bgcolor duration-500 ease-out hover:bg-gray-400">Home</a>
+                        <a href="Shop.aspx" class="text-center text-xl bg-teal-400 p-6 py-6 rounded-3xl border border-blue-200 mr-5 w-auto h-15 transition-bgcolor duration-500 ease-out hover:bg-gray-400">Shop</a>
+                        <a href="Login.aspx" class="text-center text-xl bg-teal-400 p-6 py-6 rounded-3xl border border-blue-200 mr-5 w-auto h-15 transition-bgcolor duration-500 ease-out hover:bg-gray-400">Login</a>
+                        <a href="About.aspx" class="text-center text-xl bg-teal-400 p-6 py-6 rounded-3xl border border-blue-200 mr-5 w-auto h-15 transition-bgcolor duration-500 ease-out hover:bg-gray-400">About</a>
+
+                    </div>
+                </nav>
+                </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <footer class="bg-gray-500 text-gray-800 w-full text-center">
+                <div class="container px-5 py-12 mx-auto">All right reserved to StockZ©</div>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>
