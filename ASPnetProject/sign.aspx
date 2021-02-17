@@ -121,7 +121,7 @@
             <a href="Login.aspx" class="text-4xl ml-20 mt-10 h-8 font-bold font-overpass tracking-wider">Already have an account? click here</a>
             <img src="svg/wfh_8.svg" class="w-5/6" />
         </div>
-        <form class="w-1/3" style="background-image: url('images/s.jpg')" onsubmit="return pass()">
+        <form class="w-1/3" style="background-image: url('images/s.jpg'); background-position:center center;" onsubmit="return pass()">
             
             <div>
                 
@@ -153,7 +153,7 @@
                         <label for="gender" class="text-xl">Female</label>
                         
                     </div>
-                    <div id="radioCheck" class="w-full rounded-b-2xl bg-gray-500 text-center transition-transform hidden -mt-1 red-glass-error">Please choose a gender.</div>
+                    <div id="radioCheck" class="w-full rounded-b-2xl text-center transition-transform hidden -mt-1 red-glass-error">Please choose a gender.</div>
                     <div class="mt-8 w-full flex justify-center">
                         <input type="submit" name="sumbit" class="bg-gray-400 py-2 px-4 rounded transition-colors ease-out duration-150 hover:bg-gray-500" value="Login">
                     </div>
