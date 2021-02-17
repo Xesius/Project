@@ -2,12 +2,27 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script>
+        function showpass() {
+            var hidden = document.getElementById("showpassbutton").getAttribute("src");
+            var passwordInput = document.getElementById("password").type;
+            if (hidden == "svg/hide.svg") {
+                hidden = "svg/show.svg";
+                passwordInput = "password";
+            }
+            else {
+                hidden = "svg/hide.svg";
+                passwordInput = "text";
+            }
+            showpassbutton.src = hidden;
+            document.getElementById("password").type = passwordInput;
+        }
         function pass() {
-            var result = true, mail = true, username = true, pass = true;
+            var result = true, mail = true, username = true, pass = true, gender = true;
             username = checkForms();
             mail = checkMail();
             pass = checkPass();
-            if (mail == false || username == false || pass == false) {
+            gender = checkGender();
+            if (mail == false || username == false || pass == false || gender == false) {
                 result = false;
             }
             else {
@@ -41,7 +56,7 @@
                 box1.classList.add('block');
                 return false;
             }
-            if (mailForm.indexOf("@") != mailForm.lastIndexOf("@") || mailForm.indexOf("@") == mailForm.length - 1) {
+            if (mailForm.indexOf("@") != mailForm.lastIndexOf("@")) {
                 box1.innerHTML = 'Mail address need to contian only one "@"';
                 box1.classList.remove('hidden');
                 box1.classList.add('block');
@@ -79,7 +94,24 @@
                 box2.classList.remove('hidden');
                 return false;
             }
+            else {
+                box2.classList.remove('block');
+                box2.classList.add('hidden');
+                return true;
+            }
 
+        }
+        function checkGender() {
+            if (document.getElementById('gender').checked || document.getElementById('gender2').checked) {
+                document.getElementById("radioCheck").classList.remove('block');
+                document.getElementById("radioCheck").classList.add('hidden');
+                return true;
+            }
+            else {
+                document.getElementById("radioCheck").classList.add('block');
+                document.getElementById("radioCheck").classList.remove('hidden');
+                return false;
+            }
         }
     </script>
 </asp:Content>
@@ -89,7 +121,7 @@
             <a href="Login.aspx" class="text-4xl ml-20 mt-10 h-8 font-bold font-overpass tracking-wider">Already have an account? click here</a>
             <img src="svg/wfh_8.svg" class="w-5/6" />
         </div>
-        <form class="w-1/3" onsubmit="return pass()">
+        <form class="w-1/3" style="background-image: url('images/s.jpg')" onsubmit="return pass()">
             
             <div>
                 
@@ -108,17 +140,22 @@
                     </div>
                     <div class="mt-4">
                         <label class="text-gray-600 font-overpass text-2xl">Password</label>
-                        <input name="password" id="password" type="password" onchange="checkPass()" class="bg-gray-400 rounded-lg w-full font-overpass text-2xl h-10 border border-black text-center outline-none focus:bg-gray-500" placeholder="Enter your password here" />
-                        <div id="passCheck" class="w-full rounded-b-2xl bg-gray-500 text-center transition-transform hidden -mt-1">Your password should be longer than 6 charcters.</div>
+                        <div class="relative">
+                            <input name="password" id="password" type="password" onchange="checkPass()" class="bg-gray-400 rounded-lg w-full font-overpass text-2xl h-10 border border-black text-center outline-none focus:bg-gray-500" placeholder="Enter your password here" />
+                            <img src="svg/show.svg" onclick="showpass()" id="showpassbutton" class="absolute top-0 mt-1 mr-1 right-0 h-8 flex items-center"/>
+                            <div id="passCheck" class="w-full rounded-b-2xl bg-gray-500 text-center transition-transform hidden -mt-1">Your password should be longer than 6 charcters.</div>
+                        </div>
                     </div>
                     <div class="flex justify-center mt-6">
                         <input type="radio" id="gender" name="gender" value="male" />
                         <label for="gender" class="mr-3 text-xl">Male</label>
                         <input type="radio" id="gender2" name="gender" value="female" />
                         <label for="gender" class="text-xl">Female</label>
+                        
                     </div>
+                    <div id="radioCheck" class="w-full rounded-b-2xl bg-gray-500 text-center transition-transform hidden -mt-1 red-glass-error">Please choose a gender.</div>
                     <div class="mt-8 w-full flex justify-center">
-                        <input type="submit" name="sumbit" class="bg-gray-400 py-2 px-4 rounded transition-colors ease-out duration-150 hover:bg-gray-500" value="Login"></input>
+                        <input type="submit" name="sumbit" class="bg-gray-400 py-2 px-4 rounded transition-colors ease-out duration-150 hover:bg-gray-500" value="Login">
                     </div>
                 </div>
             </div>
@@ -126,6 +163,5 @@
         </form>
         
     </div>
-    <% = table %>
 </asp:Content>
 
