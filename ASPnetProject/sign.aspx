@@ -2,6 +2,23 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script>
+        function validString(str) {
+            var quot = "\"";
+            if (str.indexOf(quot) != -1) {
+                return false;
+            }
+            var badstr = "<>[]{}?_+*&%$אבגדהוזחטיכלמנסעפצקרשת";
+            var i = 0, p, ch;
+            while (i < badstr.length) {
+                ch = badstr.charAt(i);
+                p = str.indexOf(ch);
+                if (p != -1) {
+                    return false;
+                }
+                i++;
+            }
+            return true;
+        }
         function showpass() {
             var hidden = document.getElementById("showpassbutton").getAttribute("src");
             var passwordInput = document.getElementById("password").type;
@@ -16,6 +33,7 @@
             showpassbutton.src = hidden;
             document.getElementById("password").type = passwordInput;
         }
+
         function pass() {
             var result = true, mail = true, username = true, pass = true, gender = true;
             username = checkForms();
@@ -48,8 +66,13 @@
         function checkMail() {
             var mailForm = document.getElementById("mail").value;
             var box1 = document.getElementById("mailCheck");
-            console.log(mailForm.lastIndexOf("."));
-            console.log(mailForm.indexOf(".") - mailForm.indexOf("@"));
+            console.log(validString(mailForm));
+            if (validString(mailForm) == false) {
+                box1.innerHTML = 'Invalid chars';
+                box1.classList.remove('hidden');
+                box1.classList.add('block');
+                return false;
+            }
             if (mailForm.length <= 6) {
                 box1.innerHTML = 'Your mail should be longer than 6 charcters.';
                 box1.classList.remove('hidden');
@@ -121,29 +144,29 @@
             <a href="Login.aspx" class="text-4xl ml-20 mt-10 h-8 font-bold font-overpass tracking-wider">Already have an account? click here</a>
             <img src="svg/wfh_8.svg" class="w-5/6" />
         </div>
-        <form class="w-1/3" style="background-image: url('images/s.jpg'); background-position:center center;" onsubmit="return pass()">
+        <form class="w-1/3 cool-back" onsubmit="return pass()">
             
-            <div>
+            <div class="glass m-10 py-10 mt-32">
                 
                 <h1 class="text-4xl font-bold font-overpass ml-10 mt-10 tracking-wider">Sign Up</h1>
                 <div class="m-10">
                     <div>
-                        <label class="text-gray-600 font-overpass text-2xl">Email</label>
-                        <input name="mail" id="mail" type="text" onchange="checkMail()" class="bg-gray-400 rounded-lg w-full font-overpass text-2xl h-10 border border-black text-center outline-none focus:bg-gray-500" autocomplete="off" autocorrect="off" spellcheck="false" autofocus="autofocus" placeholder="Enter your email here" />
-                        <div id="mailCheck" class="w-full rounded-b-2xl bg-gray-500 text-center transition-transform hidden -mt-1">Your mail should be longer than 2 charcters.</div>
+                        <label class="text-black font-overpass text-2xl">Email</label>
+                        <input name="mail" id="mail" type="text" onchange="checkMail()" class="grey-glass w-full font-overpass text-2xl h-10 text-center outline-none" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="Enter your email here" />
+                        <div id="mailCheck" class="w-full rounded-b-2xl text-center transition-transform hidden red-glass-error">Your mail should be longer than 2 charcters.</div>
                     </div>
                     <div class="mt-4">
-                        <label class="text-gray-600 font-overpass text-2xl">Username</label>
-                        <input name="username" id="username" type="text" onchange="checkForms()" class="bg-gray-400 rounded-lg w-full font-overpass text-2xl h-10 border border-black text-center outline-none focus:bg-gray-500" autocomplete="off" autofocus="autofocus" placeholder="Enter your username here" />
-                        <div id="nameCheck" class="w-full rounded-b-2xl bg-gray-500 text-center transition-transform hidden -mt-1">Your name should be longer than 2 charcters.</div>
+                        <label class="text-black font-overpass text-2xl">Username</label>
+                        <input name="username" id="username" type="text" onchange="checkForms()" class="grey-glass w-full font-overpass text-2xl h-10 text-center outline-none" autocomplete="off" placeholder="Enter your username here" />
+                        <div id="nameCheck" class="w-full rounded-b-2xl text-center transition-transform hidden red-glass-error">Your name should be longer than 2 charcters.</div>
                         
                     </div>
                     <div class="mt-4">
-                        <label class="text-gray-600 font-overpass text-2xl">Password</label>
+                        <label class="text-black font-overpass text-2xl">Password</label>
                         <div class="relative">
-                            <input name="password" id="password" type="password" onchange="checkPass()" class="bg-gray-400 rounded-lg w-full font-overpass text-2xl h-10 border border-black text-center outline-none focus:bg-gray-500" placeholder="Enter your password here" />
+                            <input name="password" id="password" type="password" onchange="checkPass()" class="grey-glass w-full font-overpass text-2xl h-10 text-center outline-none" placeholder="Enter your password here" />
                             <img src="svg/show.svg" onclick="showpass()" id="showpassbutton" class="absolute top-0 mt-1 mr-1 right-0 h-8 flex items-center"/>
-                            <div id="passCheck" class="w-full rounded-b-2xl bg-gray-500 text-center transition-transform hidden -mt-1">Your password should be longer than 6 charcters.</div>
+                            <div id="passCheck" class="w-full rounded-b-2xl text-center transition-transform hidden red-glass-error">Your password should be longer than 6 charcters.</div>
                         </div>
                     </div>
                     <div class="flex justify-center mt-6">
@@ -153,7 +176,7 @@
                         <label for="gender" class="text-xl">Female</label>
                         
                     </div>
-                    <div id="radioCheck" class="w-full rounded-b-2xl text-center transition-transform hidden -mt-1 red-glass-error">Please choose a gender.</div>
+                    <div id="radioCheck" class="w-full rounded-b-2xl text-center transition-transform hidden red-glass-error">Please choose a gender.</div>
                     <div class="mt-8 w-full flex justify-center">
                         <input type="submit" name="sumbit" class="bg-gray-400 py-2 px-4 rounded transition-colors ease-out duration-150 hover:bg-gray-500" value="Login">
                     </div>

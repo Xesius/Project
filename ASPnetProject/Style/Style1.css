@@ -74,6 +74,25 @@ body {
     }
 }
 .red-glass-error {
-    border: 2px solid red;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+    background-color: rgba(255, 0, 0, 0.43);
     backdrop-filter: blur(20px);
+}
+.glass {
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+}
+.grey-glass {
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+}
+.grey-glass:focus {
+    box-shadow: 0 0 2rem 0 rgba(0, 0, 0, .2);
+    border: solid 1px black;
+}
+.cool-back {
+    background-image: url(../images/s.jpg);
+    background-size: cover;
 }
