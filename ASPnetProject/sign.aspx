@@ -178,7 +178,7 @@
                     </div>
                     <div id="radioCheck" class="w-full rounded-b-2xl text-center transition-transform hidden red-glass-error">Please choose a gender.</div>
                     <div class="mt-8 w-full flex justify-center">
-                        <input type="submit" name="sumbit" class="bg-gray-400 py-2 px-4 rounded transition-colors ease-out duration-150 hover:bg-gray-500" value="Login">
+                        <input type="submit" name="sumbit" class="grey-glass py-2 mt-4 -mb-5 px-4 transition-colors ease-out duration-150 hover:bg-gray-400" value="Login">
                     </div>
                 </div>
             </div>

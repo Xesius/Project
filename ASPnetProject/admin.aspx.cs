@@ -30,10 +30,10 @@ namespace ASPnetProject
                 for (int i = 0; i < length; i++)
                 {
                     st += "<tr>";
-                    st += "<td class='border border-black'>" + table.Rows[i]["username"] + "</td>";
-                    st += "<td class='border border-black'>" + table.Rows[i]["eMail"] + "</td>";
-                    st += "<td class='border border-black'>" + table.Rows[i]["password"] + "</td>";
-                    st += "<td class='border border-black'>" + table.Rows[i]["gender"] + "</td>";
+                    st += "<td class='border border-black p-5'>" + table.Rows[i]["username"] + "</td>";
+                    st += "<td class='border border-black p-5'>" + table.Rows[i]["eMail"] + "</td>";
+                    st += "<td class='border border-black p-5'>" + table.Rows[i]["password"] + "</td>";
+                    st += "<td class='border border-black p-5'>" + table.Rows[i]["gender"] + "</td>";
                     st += "</tr>";
                 }
                 msg = "accounts: " + length;
